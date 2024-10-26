@@ -1,3 +1,3 @@
 interface ILogicalExpressionSolver {
-    boolean evaluateExpression(IExpression expression);
+    boolean evaluateExpression(Expression expression);
 }
