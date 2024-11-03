@@ -1,13 +1,20 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an Expression: ");
+        String input = sc.nextLine();
 
-        Expression e1 = new Expression();
-
-        e1.setRepresentation("(~P^(QvR))>S");
-
-        System.out.println(Arrays.toString(e1.getOperands()));
-        System.out.println(e1.getRepresentation());
+        Expression expression = new Expression();
+        try{
+            expression.setRepresentation(input);
+        }
+        catch (Exception e){
+            System.out.println("Wrong Expression: " + e.getMessage());
+            return;
+        }
+        System.out.println(expression.getPostfixRepresentation());
+        System.out.println(new LogicalExpressionSolver().evaluateExpression(expression));
     }
 }
