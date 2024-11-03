@@ -31,6 +31,7 @@ public class InferenceEngine implements IInferenceEngine {
 
         for (InferenceRule rule : rules) {
             if (rule.matches(expression1, expression2)) {
+                System.out.print("By " + rule.getName() + " :" );
                 return rule.apply(expression1, expression2);
             }
         }
