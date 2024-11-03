@@ -1,3 +1,21 @@
-public class InferenceRule {
-    
+public class InferenceRule implements IInferenceRule{
+    private final Expression expression1;
+    private final Expression expression2;
+    private final Expression inferenceResult;
+
+    public InferenceRule(Expression expression1, Expression expression2, Expression inferenceResult) {
+        this.expression1 = expression1;
+        this.expression2 = expression2;
+        this.inferenceResult = inferenceResult;
+    }
+
+    @Override
+    public boolean matches(Expression exp1, Expression exp2) {
+        return false;
+    }
+
+    @Override
+    public Expression apply(Expression exp1, Expression exp2) {
+        return null;
+    }
 }
