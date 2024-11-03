@@ -13,7 +13,7 @@ public class LogicalExpressionSolver implements ILogicalExpressionSolver{
         return evaluate(Representation);
     }
 
-    private void checkExpressionValidity(String Representation){
+    public void checkExpressionValidity(String Representation){
         Stack<Character> stack = new Stack<>();
         for(int i=0; i<Representation.length(); i++) {
             switch (Representation.charAt(i)) {

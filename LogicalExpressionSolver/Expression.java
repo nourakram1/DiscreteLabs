@@ -1,3 +1,5 @@
+import com.sun.jdi.request.ExceptionRequest;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
@@ -5,7 +7,7 @@ import java.util.Stack;
 public class Expression implements IExpression {
     private String postfixRepresentation;
     private Set<Character> operands;
-    private String Representation;
+    String Representation;
 
     public Expression() {
         postfixRepresentation = "";
@@ -14,6 +16,15 @@ public class Expression implements IExpression {
 
     public Expression(String expression) {
         this.Representation = expression;
+        operands = new HashSet<>();
+        postfixRepresentation = "";
+        try {
+            setRepresentation(expression);
+            new LogicalExpressionSolver().checkExpressionValidity(Representation);
+        }
+        catch (Exception e) {
+            System.out.println("Wrong Expression: " + e.getMessage());
+        }
     }
 
     @Override
