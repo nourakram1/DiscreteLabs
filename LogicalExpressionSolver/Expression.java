@@ -5,16 +5,21 @@ import java.util.Stack;
 public class Expression implements IExpression {
     private String postfixRepresentation;
     private Set<Character> operands;
+    private String Representation;
 
     public Expression() {
         postfixRepresentation = "";
         operands = new HashSet<>();
     }
 
-    @Override
-    public String getRepresentation() {
-        return postfixRepresentation;
+    public Expression(String expression) {
+        this.Representation = expression;
     }
+
+    @Override
+    public String getRepresentation() { return Representation; }
+
+    public String getPostfixRepresentation(){ return postfixRepresentation; }
 
     public Object[] getOperands() {
         return operands.toArray();
@@ -22,6 +27,8 @@ public class Expression implements IExpression {
 
     @Override
     public void setRepresentation(String representation) throws Exception {
+        Representation = representation;
+        representation= representation.replaceAll("~~","");
         Stack<Character> stack = new Stack<>();
         boolean isPrevOperator = false;
 
