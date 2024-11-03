@@ -11,10 +11,6 @@ public class Expression implements IExpression {
         operands = new HashSet<>();
     }
 
-    public Expression(String expression) {
-
-    }
-
     @Override
     public String getRepresentation() {
         return postfixRepresentation;
