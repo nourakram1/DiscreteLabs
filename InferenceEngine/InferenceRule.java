@@ -11,6 +11,10 @@ public class InferenceRule implements IInferenceRule{
         this.inferenceResult = inferenceResult;
     }
 
+    public String getName(){
+        return Name;
+    }
+
     @Override
     public boolean matches(Expression exp1, Expression exp2) {
         if(exp1.getOperands().length != expression1.getOperands().length)
@@ -21,6 +25,6 @@ public class InferenceRule implements IInferenceRule{
 
     @Override
     public Expression apply(Expression exp1, Expression exp2) {
-        return null;
+        return  inferenceResult;
     }
 }
