@@ -27,6 +27,8 @@ public class InferenceEngine implements IInferenceEngine {
 
     @Override
     public Expression applyRules() {
+        if(expression1 == null || expression2 == null) return null;
+
         for (InferenceRule rule : rules) {
             if (rule.matches(expression1, expression2)) {
                 return rule.apply(expression1, expression2);

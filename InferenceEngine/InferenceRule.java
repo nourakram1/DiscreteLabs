@@ -13,13 +13,10 @@ public class InferenceRule implements IInferenceRule{
 
     @Override
     public boolean matches(Expression exp1, Expression exp2) {
-        
         if(exp1.getOperands().length != expression1.getOperands().length)
             return false;
         if(exp2.getOperands().length != expression2.getOperands().length)
             return false;
-
-
     }
 
     @Override
