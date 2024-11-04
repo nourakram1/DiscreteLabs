@@ -14,7 +14,6 @@ public class Main {
             System.out.println("Wrong Expression: " + e.getMessage());
             return;
         }
-        System.out.println(expression.getPostfixRepresentation());
-        System.out.println(new LogicalExpressionSolver().evaluateExpression(expression));
+        System.out.println("The Expression is "+new LogicalExpressionSolver().evaluateExpression(expression));
     }
 }
