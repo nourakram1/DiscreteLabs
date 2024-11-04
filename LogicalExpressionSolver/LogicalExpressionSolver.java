@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -13,7 +12,7 @@ public class LogicalExpressionSolver implements ILogicalExpressionSolver{
         return evaluate(Representation);
     }
 
-    public void checkExpressionValidity(String Representation){
+    private void checkExpressionValidity(String Representation){
         Stack<Character> stack = new Stack<>();
         for(int i=0; i<Representation.length(); i++) {
             switch (Representation.charAt(i)) {
@@ -39,33 +38,28 @@ public class LogicalExpressionSolver implements ILogicalExpressionSolver{
         }
     }
 
-    private void printStack(Stack<Character> stack){
-        Iterator<Character> iterator = stack.iterator();
-        System.out.println("Stack elements:");
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-    }
-
     private boolean evaluate(String Representation) {
         Stack<Character> stack = new Stack<>();
+        boolean operand1, operand2;
         for(int i=0; i<Representation.length(); i++) {
-            printStack(stack);
-            System.out.println(Representation.charAt(i));
             switch(Representation.charAt(i)){
                 case '^':
-                    System.out.println(Representation.charAt(i));
-                    stack.push(toChar(toBoolean(stack.pop()) && toBoolean(stack.pop())));
-                    printStack(stack);
+                    operand1 = toBoolean(stack.pop());
+                    operand2 = toBoolean(stack.pop());
+                    stack.push(toChar( operand1 && operand2));
                     break;
                 case 'v':
-                    stack.push(toChar(toBoolean(stack.pop()) || toBoolean(stack.pop())));
+                    operand1 = toBoolean(stack.pop());
+                    operand2 = toBoolean(stack.pop());
+                    stack.push(toChar(operand1 || operand2));
                     break;
                 case '~':
                     stack.push(toChar(!(toBoolean(stack.pop()))));
                     break;
                 case '>':
-                    stack.push(implication(stack.pop(), stack.pop()));
+                    operand2 = toBoolean(stack.pop());
+                    operand1 = toBoolean(stack.pop());
+                    stack.push(implication(operand1, operand2));
                     break;
                 default:
                     stack.push(Representation.charAt(i));
@@ -96,8 +90,8 @@ public class LogicalExpressionSolver implements ILogicalExpressionSolver{
         return Value;
     }
 
-    private char implication(char operand2, char operand1) {
-        if(operand1 == '1' && operand2 == '0')
+    private char implication(boolean operand1, boolean operand2) {
+        if(operand1 == true && operand2 == false)
             return '0';
         else
             return '1';
