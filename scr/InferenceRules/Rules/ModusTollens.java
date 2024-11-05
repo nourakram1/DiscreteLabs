@@ -1,41 +1,43 @@
+package InferenceRules.Rules;
+
+import InferenceRules.InferenceRule;
+import LogicalExpressionSolver.Expression;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class HypotheticalSyllogism implements InferenceRule {
+public class ModusTollens implements InferenceRule {
     private final Expression inferringResult = new Expression();
     public String getName(){
-        return "Hypothetical Syllogism";
+        return "Modus Tollens";
     }
 
     private boolean check(Expression exp, Matcher matcher){
-        Pattern checker = Pattern.compile(matcher.group(2).trim()+">(.*)");
-        Matcher checkerMatcher = checker.matcher(exp.getRepresentation());
+        String checker = matcher.group(2).trim();
+        if(checker.charAt(0) == '~'){
+            checker = checker.substring(1);
+        }
+        else{
+            checker = "~" + checker;
+        }
 
-        if(checkerMatcher.matches()){
+        if(exp.getRepresentation().equals(checker)){
             try {
-                inferringResult.setRepresentation(matcher.group(1).trim() + " > " + checkerMatcher.group(1).trim());
+                String result = matcher.group(1).trim();
+                if(result.charAt(0) == '~'){
+                    result = result.substring(1);
+                }
+                else{
+                    result = "~" + result;
+                }
+                inferringResult.setRepresentation(result);
             }
             catch (Exception e){
-                System.out.println("Wrong Expression : " + e.getMessage());
+                System.out.println("Wrong LogicalExpressionSolver.Expression : " + e.getMessage());
                 System.exit(0);
             }
             return true;
         }
-
-        checker = Pattern.compile("(.*)>" + matcher.group(1).trim());
-        checkerMatcher = checker.matcher(exp.getRepresentation());
-
-        if(checkerMatcher.matches()){
-            try {
-                inferringResult.setRepresentation(checkerMatcher.group(1).trim() + " > " + matcher.group(2).trim());
-            }
-            catch (Exception e){
-                System.out.println("Wrong Expression : " + e.getMessage());
-                System.exit(0);
-            }
-            return true;
-        }
-
         return false;
     }
 
@@ -46,7 +48,7 @@ public class HypotheticalSyllogism implements InferenceRule {
             exp2.setRepresentation(exp2.getRepresentation().replaceAll(" ", ""));
         }
         catch (Exception e){
-            System.out.println("Wrong Expression : " + e.getMessage());
+            System.out.println("Wrong LogicalExpressionSolver.Expression : " + e.getMessage());
             System.exit(0);
         }
 
@@ -55,6 +57,11 @@ public class HypotheticalSyllogism implements InferenceRule {
         Matcher matcher = pattern.matcher(exp1.getRepresentation());
         if (matcher.matches()) {
             return check(exp2, matcher);
+        }
+
+        matcher = pattern.matcher(exp2.getRepresentation());
+        if (matcher.matches()) {
+            return check(exp1, matcher);
         }
 
         return false;

@@ -1,8 +1,10 @@
+package LogicalExpressionSolver;
+
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class LogicalExpressionSolver implements ILogicalExpressionSolver{
+public class LogicalExpressionSolver implements ILogicalExpressionSolver {
     @Override
     public boolean evaluateExpression(Expression expression) {
         String Operands = Arrays.toString(expression.getOperands()).replaceAll("\\[|\\]|, ", "");
@@ -12,7 +14,7 @@ public class LogicalExpressionSolver implements ILogicalExpressionSolver{
         return evaluate(Representation);
     }
 
-    private void checkExpressionValidity(String Representation){
+    void checkExpressionValidity(String Representation){
         Stack<Character> stack = new Stack<>();
         for(int i=0; i<Representation.length(); i++) {
             switch (Representation.charAt(i)) {

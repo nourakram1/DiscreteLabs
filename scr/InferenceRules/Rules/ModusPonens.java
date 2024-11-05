@@ -1,3 +1,8 @@
+package InferenceRules.Rules;
+
+import InferenceRules.InferenceRule;
+import LogicalExpressionSolver.Expression;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

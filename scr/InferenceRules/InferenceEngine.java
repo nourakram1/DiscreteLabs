@@ -1,6 +1,9 @@
+package InferenceRules;
+
+import InferenceRules.InferenceRule;
+import LogicalExpressionSolver.Expression;
+
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class InferenceEngine implements IInferenceEngine {
     ArrayList<InferenceRule> rules = new ArrayList<>();

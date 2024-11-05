@@ -1,6 +1,12 @@
+package InferenceRules;
+
+import InferenceRules.InferenceEngine;
+import InferenceRules.Rules.*;
+import LogicalExpressionSolver.Expression;
+
 import java.util.Scanner;
 
-public class Main2 {
+public class Main {
     public static void main(String[] args) {
         InferenceEngine Engine = new InferenceEngine();
         Engine.addRule(new ModusPonens());
