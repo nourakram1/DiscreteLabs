@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         //Scanner input = new Scanner(System.in);
@@ -19,8 +17,8 @@ public class Main {
         {
             for(int j = 1; j <= 20; j++)
             {
-                System.out.println("gcd(" + i + ", " + j + ") = " + Calculate_GCD.gcd(i, j));
-                System.out.println("lcm(" + i + ", " + j + ") = " + Calculate_GCD.lcm(i, j));
+                System.out.println("gcd(" + i + ", " + j + ") = " + GCD_LCM_Computations.gcd(i, j));
+                System.out.println("lcm(" + i + ", " + j + ") = " + GCD_LCM_Computations.lcm(i, j));
 
             }
 
