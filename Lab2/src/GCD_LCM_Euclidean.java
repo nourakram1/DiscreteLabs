@@ -1,4 +1,4 @@
-public class GCD_LCM_Computations {
+public class GCD_LCM_Euclidean {
     public static int gcd(int i, int j){
         if(j > i){
             int temp = i;

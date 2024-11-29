@@ -18,10 +18,10 @@ public class PrimeFactorizer {
         }
         if(number > 1) primeFactors.put(number, 1);
 
-        for (int factor : primeFactors.keySet()) {
+        /*for (int factor : primeFactors.keySet()) {
             int multiplicity = primeFactors.get(factor);
             System.out.println(factor + " -> " + multiplicity);
-        }
+        }*/
         return primeFactors;
     }
 }

@@ -17,8 +17,12 @@ public class Main {
         {
             for(int j = 1; j <= 20; j++)
             {
-                System.out.println("gcd(" + i + ", " + j + ") = " + GCD_LCM_Computations.gcd(i, j));
-                System.out.println("lcm(" + i + ", " + j + ") = " + GCD_LCM_Computations.lcm(i, j));
+                System.out.println("Euclidean");
+                System.out.println("gcd(" + i + ", " + j + ") = " + GCD_LCM_Euclidean.gcd(i, j));
+                System.out.println("lcm(" + i + ", " + j + ") = " + GCD_LCM_Euclidean.lcm(i, j));
+                System.out.println("By Prime Factorization");
+                System.out.println("gcd(" + i + ", " + j + ") = " + GCD_LCM_Primes.gcd(i, j));
+                System.out.println("lcm(" + i + ", " + j + ") = " + GCD_LCM_Primes.lcm(i, j));
 
             }
 
