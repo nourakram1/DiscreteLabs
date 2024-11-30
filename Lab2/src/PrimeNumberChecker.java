@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class PrimeNumberChecker {
     public static boolean isPrime(int number)
     {
-        boolean[] isPrimeArray = new boolean[number+1];
+        boolean[] isPrimeArray = new boolean[number+2];
         Arrays.fill(isPrimeArray, true);
         isPrimeArray[0] = isPrimeArray[1] = false;
         for(int i = 2; i <= number; i++)
@@ -16,9 +16,6 @@ public class PrimeNumberChecker {
                 }
             }
         }
-//        for(int i = 2; i <= number; i++){
-//            if(isPrimeArray[i]) System.out.println(i);
-//        }
         return isPrimeArray[number];
     }
 }

@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         int operation;
-        System.out.println("Operations:\n " +
+        System.out.println("Operations:\n" +
                            "1. Check Primality \n" +
                            "2. Get Prime Factorization \n" +
                            "3. Greatest Common Divisor \n" +
@@ -70,7 +70,7 @@ public class Main {
     private static void printFactors(HashMap<Integer, Integer> primeFactors){
         for (int factor : primeFactors.keySet()) {
             int multiplicity = primeFactors.get(factor);
-            System.out.println(factor + " -> " + multiplicity);
+            System.out.println("Factor " +factor + " with Multiplicity " + multiplicity);
         }
     }
 
@@ -79,7 +79,7 @@ public class Main {
         do {
             System.out.print("Please Enter Positive Number: ");
             number = input.nextInt();
-        }while (number < 0);
+        }while (number < 1);
         return number;
     }
 }
