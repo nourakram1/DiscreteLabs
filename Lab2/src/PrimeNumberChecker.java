@@ -16,9 +16,6 @@ public class PrimeNumberChecker {
                 }
             }
         }
-//        for(int i = 2; i <= number; i++){
-//            if(isPrimeArray[i]) System.out.println(i);
-//        }
         return isPrimeArray[number];
     }
 }

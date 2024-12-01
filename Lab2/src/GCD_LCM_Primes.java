@@ -5,7 +5,7 @@ public class GCD_LCM_Primes {
         HashMap<Integer, Integer> primeFactors_i = PrimeFactorizer.factorize(i);
         HashMap<Integer, Integer> primeFactors_j = PrimeFactorizer.factorize(j);
 
-        if(primeFactors_i.isEmpty() && primeFactors_j.isEmpty()) throw new Exception("Undifined");
+        if(primeFactors_i.isEmpty() && primeFactors_j.isEmpty()) throw new Exception("Undefined");
 
         int gcd = 1;
         for (HashMap.Entry<Integer, Integer> entry : primeFactors_i.entrySet()) {
@@ -23,7 +23,7 @@ public class GCD_LCM_Primes {
         HashMap<Integer, Integer> primeFactors_j = PrimeFactorizer.factorize(j);
         HashMap<Integer, Integer> lcmFactors = new HashMap<>();
 
-        if(primeFactors_i.isEmpty() && primeFactors_j.isEmpty()) throw new Exception("Undifined");
+        if(primeFactors_i.isEmpty() && primeFactors_j.isEmpty()) throw new Exception("Undefined");
 
         for (HashMap.Entry<Integer, Integer> entry : primeFactors_i.entrySet()) {
             int factor = entry.getKey();
