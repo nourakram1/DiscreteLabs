@@ -63,7 +63,7 @@ public class Main {
         }catch (Exception e){System.out.println(e.getMessage());}
         System.out.println("By Prime Factorization");
         try {
-            System.out.println("gcd(" + firstNumber + ", " + secondNumber + ") = " + GCD_LCM_Primes.gcd(firstNumber, secondNumber));
+            System.out.println("lcm(" + firstNumber + ", " + secondNumber + ") = " + GCD_LCM_Primes.lcm(firstNumber, secondNumber));
         }catch (Exception e){System.out.println(e.getMessage());}
     }
 
