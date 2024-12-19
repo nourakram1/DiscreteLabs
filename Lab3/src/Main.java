@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Enter the Universe (comma-separated strings): ");
             String[] universeArray = scanner.nextLine().replaceAll(" ", "").split(",");
             ArrayList<String> universe = new ArrayList<>(List.of(universeArray));
@@ -115,8 +114,6 @@ public class Main {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            scanner.close();
         }
     }
 
